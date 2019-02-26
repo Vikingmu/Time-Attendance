@@ -87,7 +87,7 @@
 
           // 新建一个对象，用来push进入数组
           const obj = {students: []};
-          const list = lists[i];
+          const list = this.lists[i];
 
           // 班级学号赋值
           obj.class_id = this.class_id;
@@ -158,12 +158,12 @@
         localStorage.setItem('res.data.body.id', res.data.body.id);
       }
 
-        localStorage.setItem("lists", JSON.stringify(this.lists));
-        console.log('存储的数据为', JSON.parse(localStorage.getItem('lists')));
-
-        // 跳转路由
-        this.$router.push({name: 'attendance'});
-      }
+    //     localStorage.setItem("lists", JSON.stringify(this.lists));
+    //     console.log('存储的数据为', JSON.parse(localStorage.getItem('lists')));
+// 
+    //     // 跳转路由
+    //     this.$router.push({name: 'attendance'});
+    //   }
     },
 
     mounted() {

@@ -120,29 +120,29 @@
 
 <script>
   // 引入子组件
-  import qr_code from './qr_code';
-  import classMsg from './classMsg';
-export default {
-    name: "Attendance",
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-
-    // 声明子组件
-    components: {
-      qr_code,
-      classMsg,
+  // import qr_code from './qr_code';
+  // import classMsg from './classMsg';
+////  export default {
+//     name: "Attendance",
+//     data() {
+//       return {
+// 
+//       }
+//     },
+//     methods: {
+// 
+//     },
+// 
+//     // 声明子组件
+//     components: {
+//       qr_code,
+//       classMsg,
   import {mapState} from 'vuex';
   import {works} from "../axios/api";
 
   // 引入子组件
-  import qr_code from './qr_code';
-  import classMsg from './classMsg';
+  // import qr_code from './qr_code';
+  // import classMsg from './classMsg';
 
   export default {
     name: "Attendance",
@@ -385,17 +385,17 @@ export default {
         this.isMenu = false;
       },
 
-      getWorks(username) {
-        works(username).then(res => {
-          console.log(res.data);
-          this.imgURL = 'https://1.cust.edu.cn/shufa/' + res.data.data[0].pieces[0].image.url
-        }).catch(error => {
-          console.log(error.response)
-        });
-        console.log('showPic:', this.showPic);
-        this.showPic = true;
-        console.log('showPic:', this.showPic);
-      },
+      // getWorks(username) {
+      //   works(username).then(res => {
+      //     console.log(res.data);
+      //     this.imgURL = 'https://1.cust.edu.cn/shufa/' + res.data.data[0].pieces[0].image.url
+      //   }).catch(error => {
+      //     console.log(error.response)
+      //   });
+      //   console.log('showPic:', this.showPic);
+      //   this.showPic = true;
+      //   console.log('showPic:', this.showPic);
+      // },
 
 
       // 更改签到状态
@@ -516,7 +516,6 @@ export default {
     },
     updated: function () {
       this.globalClick(this.mouseout);
->>>>>>> 91dd05a50ecb9d361a91be5c3fbd21580646c4f9
     }
   }
 </script>
