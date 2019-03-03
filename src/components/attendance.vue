@@ -12,7 +12,8 @@
             <h3>限时{{count}}秒，超时请重试</h3>
           </div>
           <div class="bd">
-            <img src="../png/cust.png" alt="">
+            <div id="qrcode"></div>
+
             <div class="table">
               <div class="progress-bar">
                 <div id='loader'>
@@ -119,6 +120,11 @@
 
 <script>
   import {mapState} from 'vuex';
+<<<<<<< HEAD
+  import authenticator from 'otplib/authenticator';
+  import crypto from 'crypto';
+=======
+>>>>>>> refs/remotes/origin/master
   // import {works} from "../axios/api";
 
   export default {
@@ -209,6 +215,13 @@
       loaded.style.width = this.loaded_width + 'px';  // 设置内容宽度
       loaded.style.height = this.loaded_height + 'px'; // 设置内容高度
       console.log("盒子当前设置宽度为:", loader.style.width);
+<<<<<<< HEAD
+
+      //循环二维码
+      console.log("loopCode open");
+      this.loopCode();
+=======
+>>>>>>> refs/remotes/origin/master
     },
     destroyed() {
       clearTimeout(this.time);
@@ -233,6 +246,38 @@
           }, 1000)
         }
       },
+<<<<<<< HEAD
+
+
+      //循环调用otp组件并请求相应二维码
+      loopCode() {
+        const result = localStorage.getItem('seed');
+        console.log('qrCode', result);
+        authenticator.options = {
+          crypto: crypto,
+          step: 7,
+          window: 1
+        };
+        const secret = result;
+        let qrcode = new QRCode('qrcode', {
+          width: 328,
+          height: 328,
+          colorDark: "#000",
+          colorLight: "#fff",
+          correctLevel: QRCode.CorrectLevel.H
+
+        });
+        setInterval(function () {
+          //获取id
+          const id = localStorage.getItem('res.data.body.id');
+          const token = authenticator.generate(secret); //
+          console.log('token', token);
+          const url = `https://192.168.1.145:8081?val=${token}&id=${id}`;
+          qrcode.makeCode(url);
+        }, 100);
+      },
+=======
+>>>>>>> refs/remotes/origin/master
       // 删除选中按钮
       clearCheckBtn() {
         for (var i = 0; i < this.classMsg.length; i++) {
@@ -278,6 +323,8 @@
         }, 20);
       },
       //定时器//获取二维码
+<<<<<<< HEAD
+=======
       set_time() {
         //首次获取二维码
         get_code().then(result => {
@@ -303,6 +350,7 @@
           })()
         }
       },
+>>>>>>> refs/remotes/origin/master
 
       setIndex(index1, index2) {
         var student = this.classMsg[index1].students[index2];

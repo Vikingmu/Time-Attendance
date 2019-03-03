@@ -13,6 +13,7 @@
           </div>
           <div class="bd">
             <img src="../png/cust.png" alt="">
+            <qrcode></qrcode>
             <div class="table">
               <div class="progress-bar">
                 <div id='loader'>
